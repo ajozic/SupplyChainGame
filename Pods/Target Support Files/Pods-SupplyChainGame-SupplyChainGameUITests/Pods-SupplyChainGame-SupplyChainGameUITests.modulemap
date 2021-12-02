@@ -1,0 +1,6 @@
+framework module Pods_SupplyChainGame_SupplyChainGameUITests {
+  umbrella header "Pods-SupplyChainGame-SupplyChainGameUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

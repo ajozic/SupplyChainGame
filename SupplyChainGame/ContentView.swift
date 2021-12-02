@@ -9,11 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var userAuth = UserAuth()
     
     
     var body: some View {
         VStack{
-            Dashboard()
+                    if userAuth.isLoggedin == false  {
+                        LoginView()
+                            
+                        } else if userAuth.isLoggedin == true {
+                        Dashboard()
+                            
+                    }
+
+                
             
         }// end VStack
     }// end body
@@ -24,5 +33,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            
     }
 }
