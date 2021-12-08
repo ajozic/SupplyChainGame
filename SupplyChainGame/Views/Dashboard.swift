@@ -14,13 +14,16 @@ struct Dashboard: View {
     
     var body: some View {
         NavigationView {
-            NavigationLink(destination: NewGame()) {
+            NavigationLink(destination: NewGame()
+                            //.navigationBarTitle(Text("Home"))
+                            .edgesIgnoringSafeArea([.top, .bottom])) {
                 Text("Create New Game")
             }
                 .padding()
                 .navigationBarTitle("Dashboard")
                 .navigationBarItems(trailing: NavigationLink(destination: Instructions()) {
                     Text("How to Play")
+                    
         })
     }// end Dashboard Body
 }// end Dashboard View

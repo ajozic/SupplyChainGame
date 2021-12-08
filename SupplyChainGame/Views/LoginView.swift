@@ -21,6 +21,7 @@ struct LoginView: View {
         let verticalPaddingForForm = 40.0
     
         var body: some View {
+            NavigationView{
             ZStack {
                 RadialGradient(gradient: Gradient(colors: [.blue, .red]), center: .center, startRadius: 100, endRadius: 470)
                 VStack(spacing: CGFloat(verticalPaddingForForm)) {
@@ -48,13 +49,17 @@ struct LoginView: View {
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                    
+
                     Button(action: {
                         userAuth.login(email: name, password: password)
-                    } ) {
-                        Text("Login")
-                            .padding()
+                        userAuth.isLoggedin.toggle()
                         
+                        
+                    } ) {
+                            NavigationLink("Login",destination: Dashboard().navigationBarBackButtonHidden(true).navigationBarHidden(true)
+                                           // .navigationBarTitle(Text("Home"))
+                                            .edgesIgnoringSafeArea([.top, .bottom]))
+                                .padding()
                     }
                     .background(Color.black)
                     .foregroundColor(Color.white)
@@ -62,6 +67,7 @@ struct LoginView: View {
                     
                 }.padding(.horizontal, CGFloat(verticalPaddingForForm))
                 
-            }
-        };
+            }.navigationBarBackButtonHidden(true)
+        }
+}
 }

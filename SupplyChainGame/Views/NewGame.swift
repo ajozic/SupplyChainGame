@@ -13,6 +13,8 @@ import SwiftUI
 struct NewGame: View {
     var body: some View {
         
+        NavigationView {
+            
             VStack {
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
@@ -28,13 +30,17 @@ struct NewGame: View {
                 }.padding()
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
-                    Text("Manufacturer").foregroundColor(.white)
+                    NavigationLink ("Manufacturer", destination: Manufacturer().navigationBarBackButtonHidden(true).navigationBarHidden(true)
+                                        //.navigationBarTitle(Text("Home"))
+                                        .edgesIgnoringSafeArea([.top, .bottom])).foregroundColor(.white)
                 }.padding()
                 
 
-                
+            // end ZStack
             }.padding()
             .navigationBarTitle("Create New Game")
-//            Spacer()
+            
+        }
+
     }// end body
 }
