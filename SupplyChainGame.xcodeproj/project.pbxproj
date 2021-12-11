@@ -18,6 +18,9 @@
 		4139BE10274E82C400ECB2A4 /* SupplyChainGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139BE0F274E82C400ECB2A4 /* SupplyChainGameUITests.swift */; };
 		4139BE20274E86B300ECB2A4 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139BE1F274E86B300ECB2A4 /* Instructions.swift */; };
 		A1006B39276109110038AF9E /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1006B38276109110038AF9E /* Manufacturer.swift */; };
+		A10A7FAB2764E48700C39EF5 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A7FAA2764E48700C39EF5 /* Role.swift */; };
+		A10A7FAD2764E48E00C39EF5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A7FAC2764E48E00C39EF5 /* Player.swift */; };
+		A10A7FB12764E4B400C39EF5 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A7FB02764E4B400C39EF5 /* PlayerView.swift */; };
 		A122A03E27590DF400748E7E /* NewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122A03D27590DF400748E7E /* NewGame.swift */; };
 		A122A040275932EA00748E7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A122A03F275932EA00748E7E /* GoogleService-Info.plist */; };
 		A122A04427593AF000748E7E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122A04327593AF000748E7E /* LoginView.swift */; };
@@ -66,6 +69,9 @@
 		7B6272D50F6C50DB6A33AA6C /* Pods-SupplyChainGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SupplyChainGameTests.debug.xcconfig"; path = "Target Support Files/Pods-SupplyChainGameTests/Pods-SupplyChainGameTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DD80E42BE5457B5184D6846 /* Pods-SupplyChainGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SupplyChainGame.release.xcconfig"; path = "Target Support Files/Pods-SupplyChainGame/Pods-SupplyChainGame.release.xcconfig"; sourceTree = "<group>"; };
 		A1006B38276109110038AF9E /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		A10A7FAA2764E48700C39EF5 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		A10A7FAC2764E48E00C39EF5 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A10A7FB02764E4B400C39EF5 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		A122A03D27590DF400748E7E /* NewGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGame.swift; sourceTree = "<group>"; };
 		A122A03F275932EA00748E7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A122A04327593AF000748E7E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		4139BDEC274E82C300ECB2A4 /* SupplyChainGame */ = {
 			isa = PBXGroup;
 			children = (
+				A10A7FA92764E47D00C39EF5 /* Models */,
 				A122A0452759433200748E7E /* UserAuth */,
 				A122A04127593ACC00748E7E /* Views */,
 				4139BE1E274E869A00ECB2A4 /* Instructions */,
@@ -179,6 +186,15 @@
 			path = Instructions;
 			sourceTree = "<group>";
 		};
+		A10A7FA92764E47D00C39EF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10A7FAA2764E48700C39EF5 /* Role.swift */,
+				A10A7FAC2764E48E00C39EF5 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A122A04127593ACC00748E7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +202,7 @@
 				A1502366274E8CE900C4AB99 /* Dashboard.swift */,
 				A122A03D27590DF400748E7E /* NewGame.swift */,
 				A1006B38276109110038AF9E /* Manufacturer.swift */,
+				A10A7FB02764E4B400C39EF5 /* PlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -461,8 +478,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10A7FAD2764E48E00C39EF5 /* Player.swift in Sources */,
 				A122A03E27590DF400748E7E /* NewGame.swift in Sources */,
 				A122A04427593AF000748E7E /* LoginView.swift in Sources */,
+				A10A7FB12764E4B400C39EF5 /* PlayerView.swift in Sources */,
 				A122A0472759434900748E7E /* UserAuth.swift in Sources */,
 				4139BDEE274E82C300ECB2A4 /* AppDelegate.swift in Sources */,
 				4139BDF0274E82C300ECB2A4 /* SceneDelegate.swift in Sources */,
@@ -470,6 +489,7 @@
 				4139BE20274E86B300ECB2A4 /* Instructions.swift in Sources */,
 				4139BDF2274E82C300ECB2A4 /* ContentView.swift in Sources */,
 				A1006B39276109110038AF9E /* Manufacturer.swift in Sources */,
+				A10A7FAB2764E48700C39EF5 /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
