@@ -11,6 +11,13 @@ import SwiftUI
 
 
 struct NewGame: View {
+    
+    
+    var retailerTaken : Bool = true
+    var wholesalerTaken : Bool = false
+    var distributorTaken : Bool = false
+    var manufacturerTaken: Bool = false
+    
     var body: some View {
         
         NavigationView {
@@ -18,29 +25,53 @@ struct NewGame: View {
             VStack {
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
-                    Text("Retailer").foregroundColor(.white)
+                    NavigationLink ("Retailer", destination:
+                                        PlayerView(player: Player(id:0, name: "player1", initialCount: 10, role: "Retailer")))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                    //.navigationBarTitle(Text("Home"))
+                        .edgesIgnoringSafeArea([.top, .bottom])
+                        .foregroundColor(.white)
+                        .disabled(retailerTaken == true)
+                    
                 }.padding()
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
-                    Text("Wholesaler").foregroundColor(.white)
+                    NavigationLink ("Wholesaler", destination:
+                                        PlayerView(player: Player(id:1,name:"player2",initialCount:10,role:"Wholesaler")))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                    //.navigationBarTitle(Text("Home"))
+                        .edgesIgnoringSafeArea([.top, .bottom])
+                        .foregroundColor(.white)
                 }.padding()
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
-                    Text("Distributor").foregroundColor(.white)
+                    NavigationLink ("Distributor", destination:
+                                        PlayerView(player: Player(id:1,name:"player3",initialCount:10,role:"Distributor")))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                    //.navigationBarTitle(Text("Home"))
+                        .edgesIgnoringSafeArea([.top, .bottom])
+                        .foregroundColor(.white)
                 }.padding()
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
-                    NavigationLink ("Manufacturer", destination: Manufacturer().navigationBarBackButtonHidden(true).navigationBarHidden(true)
-                                        //.navigationBarTitle(Text("Home"))
-                                        .edgesIgnoringSafeArea([.top, .bottom])).foregroundColor(.white)
+                    NavigationLink ("Manufacturer", destination:
+                                        PlayerView(player: Player(id:1,name:"player4",initialCount:10,role:"Manufacturer")))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                    //.navigationBarTitle(Text("Home"))
+                        .edgesIgnoringSafeArea([.top, .bottom])
+                        .foregroundColor(.white)
                 }.padding()
                 
-
-            // end ZStack
+                
+                // end ZStack
             }.padding()
-            .navigationBarTitle("Create New Game")
+                .navigationBarTitle("Create New Game")
             
         }
-
+        
     }// end body
 }
