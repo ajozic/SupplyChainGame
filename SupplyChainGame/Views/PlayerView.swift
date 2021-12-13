@@ -81,7 +81,14 @@ struct PlayerView: View {
             //            }
             
             Button(action: {
-                self.step1 = self.manufactureQuantity
+                //print("turn ended")
+                turnDone.toggle();
+                controller.endTurn()
+                self.manufactureQuantity = ""
+                sleep(10)
+                turnDone.toggle()
+               //self.step1 = self.manufactureQuantity
+                
                 //                if(self.step2 == "" && self.step1 != ""){
                 //                    self.step2 = self.step1
                 //                }else if(self.step2 == "" && self.step1 == ""){
@@ -91,7 +98,7 @@ struct PlayerView: View {
                 if(player.role == "Manufacturer"){
                     Text("Manufacture")}else{
                         Text("Order")}
-            }
+            }.disabled(turnDone == true)
             
             
             

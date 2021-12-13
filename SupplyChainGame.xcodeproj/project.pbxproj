@@ -24,6 +24,8 @@
 		A122A040275932EA00748E7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A122A03F275932EA00748E7E /* GoogleService-Info.plist */; };
 		A122A04427593AF000748E7E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122A04327593AF000748E7E /* LoginView.swift */; };
 		A122A0472759434900748E7E /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122A0462759434900748E7E /* UserAuth.swift */; };
+		A14921C02767CD980006D110 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14921BF2767CD970006D110 /* GameController.swift */; };
+		A14921C22767CF350006D110 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14921C12767CF350006D110 /* PlayerViewModel.swift */; };
 		A1502367274E8CE900C4AB99 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1502366274E8CE900C4AB99 /* Dashboard.swift */; };
 		C078D224834E3A7CEF2CFF9A /* Pods_SupplyChainGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CCBE4D5EB39783188D41BA /* Pods_SupplyChainGame.framework */; };
 		EDDFEE24D4E5D92972459BF0 /* Pods_SupplyChainGame_SupplyChainGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE72F53843A37C1D8BD3508 /* Pods_SupplyChainGame_SupplyChainGameUITests.framework */; };
@@ -74,6 +76,8 @@
 		A122A03F275932EA00748E7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A122A04327593AF000748E7E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A122A0462759434900748E7E /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		A14921BF2767CD970006D110 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		A14921C12767CF350006D110 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		A1502366274E8CE900C4AB99 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		B9CCBE4D5EB39783188D41BA /* Pods_SupplyChainGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SupplyChainGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABF9C555DFD6FDE3B0A6088 /* Pods_SupplyChainGameTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SupplyChainGameTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +138,8 @@
 		4139BDEC274E82C300ECB2A4 /* SupplyChainGame */ = {
 			isa = PBXGroup;
 			children = (
+				A14921BE2767CD830006D110 /* Controllers */,
+				A14921BD2767CD0A0006D110 /* ViewModels */,
 				A10A7FA92764E47D00C39EF5 /* Models */,
 				A122A0452759433200748E7E /* UserAuth */,
 				A122A04127593ACC00748E7E /* Views */,
@@ -210,6 +216,22 @@
 				A122A0462759434900748E7E /* UserAuth.swift */,
 			);
 			path = UserAuth;
+			sourceTree = "<group>";
+		};
+		A14921BD2767CD0A0006D110 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A14921C12767CF350006D110 /* PlayerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A14921BE2767CD830006D110 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A14921BF2767CD970006D110 /* GameController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A162C0C21B46112EAEB037B8 /* Frameworks */ = {
@@ -476,8 +498,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10A7FAD2764E48E00C39EF5 /* Player.swift in Sources */,
+				A14921C02767CD980006D110 /* GameController.swift in Sources */,
 				A122A03E27590DF400748E7E /* NewGame.swift in Sources */,
 				A122A04427593AF000748E7E /* LoginView.swift in Sources */,
+				A14921C22767CF350006D110 /* PlayerViewModel.swift in Sources */,
 				A10A7FB12764E4B400C39EF5 /* PlayerView.swift in Sources */,
 				A122A0472759434900748E7E /* UserAuth.swift in Sources */,
 				4139BDEE274E82C300ECB2A4 /* AppDelegate.swift in Sources */,
