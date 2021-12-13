@@ -19,7 +19,6 @@ struct PlayerView: View {
     var body: some View {
         
         VStack(alignment: .center){
-            Spacer()
             Text("Name: \(player.name)")
             Text("\(player.role)")
                 .font(.system(size: 30))
@@ -48,11 +47,26 @@ struct PlayerView: View {
                 .disabled(true)
                 .multilineTextAlignment(.center)
                 .padding(10)
-            if(player.role == "Manufacturer"){
-                Text("Manufacture quantity").bold()
-            }else{
-                Text("Order quantity")
-                .bold()}
+            
+            switch player.role {
+            case "Manufacturer":
+                Text("Manufacturer quantity").bold()
+            case "Wholesaler":
+                Text("Wholesaler quantity").bold()
+            case "Distributor":
+                Text("Distributor quantity").bold()
+            case "Retailer":
+                Text("Retailer quantity").bold()
+            default:
+                Text("Order quantity").bold()
+            }
+            
+//            if(player.role == "Manufacturer"){
+//                Text("Manufacture quantity").bold()
+//            }else{
+//                Text("Order quantity")
+//                .bold()}
+            
             if(player.role == "Manufacturer"){
                 TextField("Manufacture qty",text: $manufactureQuantity)
                     .multilineTextAlignment(.center)
@@ -68,7 +82,6 @@ struct PlayerView: View {
             
             Button(action: {
                 self.step1 = self.manufactureQuantity
-                
                 //                if(self.step2 == "" && self.step1 != ""){
                 //                    self.step2 = self.step1
                 //                }else if(self.step2 == "" && self.step1 == ""){

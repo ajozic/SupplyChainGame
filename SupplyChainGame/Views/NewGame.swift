@@ -35,6 +35,7 @@ struct NewGame: View {
                         .disabled(retailerTaken == true)
                     
                 }.padding()
+                // end ZStack
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
                     NavigationLink ("Wholesaler", destination:
@@ -45,6 +46,7 @@ struct NewGame: View {
                         .edgesIgnoringSafeArea([.top, .bottom])
                         .foregroundColor(.white)
                 }.padding()
+                // end ZStack
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
                     NavigationLink ("Distributor", destination:
@@ -55,6 +57,7 @@ struct NewGame: View {
                         .edgesIgnoringSafeArea([.top, .bottom])
                         .foregroundColor(.white)
                 }.padding()
+                // end ZStack
                 ZStack{
                     Rectangle().fill(Color.gray).frame(width: 300, height: 100).cornerRadius(20)
                     NavigationLink ("Manufacturer", destination:
@@ -65,13 +68,9 @@ struct NewGame: View {
                         .edgesIgnoringSafeArea([.top, .bottom])
                         .foregroundColor(.white)
                 }.padding()
-                
-                
                 // end ZStack
             }.padding()
                 .navigationBarTitle("Create New Game")
-            
-        }
-        
+        } // end NavigationView
     }// end body
 }
