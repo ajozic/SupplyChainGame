@@ -7,6 +7,8 @@ struct PlayerView: View {
     // var player = Player(id:1,name: "player1",initialCount: 10,role:"Test")
     var player :Player
     
+    @ObservedObject var controller = GameController()
+    
     @State var incomingOrder : String = ""
     @State var manufactureQuantity : String = ""
     @State var step1: String = ""
@@ -15,6 +17,8 @@ struct PlayerView: View {
     //@State var steps: [String]
     @State var inventory : Int = 0
     @State var backlog : Int = 0
+    
+    @State var turnDone : Bool = false
     
     var body: some View {
         
