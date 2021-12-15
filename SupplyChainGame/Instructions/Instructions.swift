@@ -11,7 +11,18 @@ import SwiftUI
 
 
 struct Instructions: View {
+    @ObservedObject private var viewModel = PlayerViewModel()
+    
     var body: some View {
+        
+//        List(viewModel.games) { game in
+//                       VStack(alignment: .leading) {
+////                           Text(game.turnId).font(.title)
+//                           Text("\(game.inOrder)")
+//                       }
+//                   }.onAppear() {
+//                      // self.viewModel.fetchData()
+//                   }
         
             VStack{
 
@@ -25,6 +36,7 @@ struct Instructions: View {
                 Image("supplyChain").resizable().frame(width: 400, height: 300)
                 Spacer()
             }.padding()
+
             .navigationBarTitle("How to Play")
     }
 }

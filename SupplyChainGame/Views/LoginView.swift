@@ -18,56 +18,61 @@ struct LoginView: View {
     //@EnvironmentObject var userAuth: UserAuth
     @StateObject var userAuth = UserAuth()
     
-        let verticalPaddingForForm = 40.0
-    
-        var body: some View {
-            NavigationView{
-            ZStack {
-                RadialGradient(gradient: Gradient(colors: [.blue, .red]), center: .center, startRadius: 100, endRadius: 470)
-                VStack(spacing: CGFloat(verticalPaddingForForm)) {
-                    Text("Welcome To Supply Chain Game")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                    HStack {
-                        Image(systemName: "person")
-                            .foregroundColor(.secondary)
-                        TextField("Enter your name", text: $name)
-                            .foregroundColor(Color.black)
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    
-                    HStack {
-                        Image("icons8-key-50")
-                            .resizable()
-                            .frame(width: 16.0, height: 16.0) .foregroundColor(.secondary)
-                        SecureField("Enter password", text: $password)
-                            .foregroundColor(Color.black)
-                        
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
+    let verticalPaddingForForm = 40.0
 
-                    Button(action: {
-                        userAuth.login(email: name, password: password)
-                        userAuth.isLoggedin.toggle()
-                        
-                        
-                    } ) {
-                            NavigationLink("Login",destination: Dashboard().navigationBarBackButtonHidden(true).navigationBarHidden(true)
-                                           // .navigationBarTitle(Text("Home"))
-                                            .edgesIgnoringSafeArea([.top, .bottom]))
-                                .padding()
-                    }
-                    .background(Color.black)
+    var body: some View {
+        NavigationView{
+        ZStack{
+            Color.blue.edgesIgnoringSafeArea(.all)
+            VStack(spacing: CGFloat(verticalPaddingForForm)) {
+                Image("beer").resizable().frame(width: 200, height: 200)
+                Text("Welcome To Supply Chain Game")
+                    .font(.title)
                     .foregroundColor(Color.white)
-                    .cornerRadius(10)
-                    
-                }.padding(.horizontal, CGFloat(verticalPaddingForForm))
+                    .multilineTextAlignment(.center)
+                HStack {
+                    Image(systemName: "person")
+                        .foregroundColor(.secondary)
+                    TextField("Enter your name", text: $name)
+                        .foregroundColor(Color.black)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
                 
-            }.navigationBarBackButtonHidden(true)
+                HStack {
+                    Image(systemName: "key")
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 3)
+                    SecureField("Enter password", text: $password)
+                        .foregroundColor(Color.black)
+                    
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+
+                Button(action: {
+                    userAuth.login(email: name, password: password)
+                    userAuth.isLoggedin.toggle()
+                    
+                    
+                } ) {
+                        NavigationLink("Login",destination: Dashboard().navigationBarBackButtonHidden(true).navigationBarHidden(true)
+                                       // .navigationBarTitle(Text("Home"))
+                                        .edgesIgnoringSafeArea([.top, .bottom]))
+                            .padding()
+                }
+                .background(Color.black)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+                Spacer()
+            }.padding(.horizontal, CGFloat(verticalPaddingForForm)).background(Color.blue)
+            
         }
-}
+        
+    }
+    }
 }

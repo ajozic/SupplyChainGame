@@ -13,18 +13,18 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack{
-                    if userAuth.isLoggedin == false  {
-                        LoginView()
-                            
-                        } else if userAuth.isLoggedin == true {
-                        Dashboard()
-                            
-                    }
 
-                
-            
-        }// end VStack
+            VStack{
+                        if userAuth.isLoggedin == false  {
+                            LoginView()
+                                
+                            } else if userAuth.isLoggedin == true {
+                            Dashboard()
+                        }
+
+            }// end VStack
+        
+
     }// end body
     
 

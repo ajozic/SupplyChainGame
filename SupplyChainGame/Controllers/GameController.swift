@@ -1,7 +1,10 @@
 
 import Foundation
+import FirebaseFirestore
 
-class GameController: Codable, ObservableObject{
+class GameController : ObservableObject, Codable{
+    
+    //private var db = Firestore.firestore()
     
     init(){
         
@@ -9,35 +12,72 @@ class GameController: Codable, ObservableObject{
     
   //  var player : Player
     var order : Int = 2
-    var count : Int = 10
-    public var turnCount : Int = 0
+    var inventory : Int = 10
+    public var turnCount : Int = 1
     var manufacturerEnded : Bool = true
     var wholesalerEnded: Bool = true
     var supplierEnded : Bool = true
     var retailerEnded : Bool = true
+    //var orderQueue = Queue2<Int>()
     
-    func getOrder(order:Int){
-        count = self.count - order
+    
+    public var elements: [Int] = []
+
+
+    func enqueue(_ value: Int) {
+      elements.append(value)
+    }
+
+    func dequeue() -> Int? {
+      guard !elements.isEmpty else {
+        return nil
+      }
+      return elements.removeFirst()
+    }
+
+    
+    func getOrder(inventory:Int,shippingOrder:Int)->(Int){
+        
+        var inv = inventory
+        inv = inv - shippingOrder
+        return inv
     }
     
-    func sendOrder(order:Int){
-        if(turnCount % 2 == 0){
-            count = self.count + order
+    func sendOrder(order:Int, inventory: Int)->(Int){
+        var nesto : Int = inventory
+        if(turnCount % 2 != 0 && turnCount <= 3){
+            enqueue(order)
+            let deliveredOrder : Int = dequeue() ?? 0
+            nesto = nesto + deliveredOrder
+
+           // print("Inventory is \(nesto)")
+
+        }else if(turnCount % 2 == 0 && turnCount <= 3){
+            enqueue(order)
+            print("Order is \(order)")
+        }else if(turnCount > 3){
+            enqueue(order)
+            let deliveredOrder : Int = dequeue() ?? 0
+            nesto = nesto + deliveredOrder
         }
+        return nesto
     }
     
-    func endTurn(){
+    func endTurn()->(Int){
         if(manufacturerEnded == true && wholesalerEnded == true && supplierEnded == true && retailerEnded == true){
-            turnCount+=1
             print("Turn \(turnCount) ended")
+            turnCount+=1
             
-//            sleep(10)
-//
-            manufacturerEnded = false
-            wholesalerEnded = false
-            supplierEnded = false
-            retailerEnded = false
+            
+            sleep(5)
+
+//            manufacturerEnded = false
+//            wholesalerEnded = false
+//            supplierEnded = false
+//            retailerEnded = false
         }
+        return turnCount
     }
     
 }
+

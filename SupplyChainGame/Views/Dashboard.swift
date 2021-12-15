@@ -11,21 +11,31 @@ import SwiftUI
 
 struct Dashboard: View {
     @State var isInstructions: Bool = false
+    @State var didTap: Bool = false
     
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: NewGame()
-                            //.navigationBarTitle(Text("Home"))
-                            .edgesIgnoringSafeArea([.top, .bottom])) {
-                Text("Create New Game")
-            }
-                .padding()
-                .navigationBarTitle("Dashboard")
-                .navigationBarItems(trailing: NavigationLink(destination: Instructions()) {
+        NavigationView{
+            VStack{
+                Image("beer").resizable().frame(width: 200, height: 200).padding(.bottom, 100).padding(.top, 50)
+                
+                NavigationLink(destination: NewGame()
+                                //.navigationBarTitle(Text("Home"))
+                                .edgesIgnoringSafeArea([.top, .bottom])) {
+                    Text("Create New Game")
+                }// end of navigation
+                        .padding(20)
+                    .foregroundColor(.white)
+                    .frame(width: 200, height: 60)
+                    .navigationTitle(Text("Dashboard"))
+                    .background(Color.blue)
+                    .cornerRadius(16)
+                    .navigationBarItems(trailing: NavigationLink(destination: Instructions()) {
                     Text("How to Play")
-                    
-        })
-    }// end Dashboard Body
+                    })
+                Spacer()
+            }
+        }// end Dashboard Body
+    }
 }// end Dashboard View
 
 //
@@ -34,4 +44,3 @@ struct Dashboard: View {
 //                                    Instructions()
 //                                })
 
-}
